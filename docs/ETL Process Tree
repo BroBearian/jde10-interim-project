@@ -1,0 +1,14 @@
+run_etl_pipeline()
+├── EXTRACT
+│   ├── GET /genre/movie/list
+│   └── for each page (1–3):
+│       ├── GET /discover/movie?region=SG
+│       └── for each movie in results:
+│           └── GET /movie/{id}  (with delay)
+├── TRANSFORM (per detail response)
+│   ├── Parse JSON → derive fields (date, bool, stringified list)
+│   ├── Build Movie, Genre, MovieGenre Python objects
+│   └── Stage objects with session.add()
+└── LOAD
+    ├── session.commit() for genres
+    └── session.commit() for movies + bridge records
