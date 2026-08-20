@@ -1,2 +1,1 @@
-# Team 3 Movie Magic's
-# jde10-interim-project
+# JDE10 Team 3 Movie Magic's Interim Project
